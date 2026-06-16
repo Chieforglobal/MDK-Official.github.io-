@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MDK - Join the Movement</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            /* THE BIG CHANGE: PURPLE/PINK/BLACK BACKGROUND */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #ff00cc);
+            color: white; /* TEXT IS NOW WHITE TO POP */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* Container to center and style the form */
+        .app-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        /* Modern, stylized MDK title with glowing effect */
+        h1 {
+            color: #ff00cc; /* BRIGHT PINK ACCENT */
+            text-align: center;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 2.2em;
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.7);
+        }
+
+        .info { 
+            font-size: 0.9em; 
+            color: rgba(255, 255, 255, 0.8); /* FADED WHITE INFO */
+            margin-bottom: 20px; 
+            text-align: center;
+        }
+
+        .form-group { 
+            margin-bottom: 15px; 
+            color: white;
+        }
+
+        input, select { 
+            width: 100%; 
+            padding: 12px; 
+            margin-top: 5px; 
+            border: 1px solid #ff00cc; /* PINK BORDER */
+            box-sizing: border-box; 
+            background-color: rgba(255, 255, 255, 0.1); /* TRANSPARENT BLACK/WHITE INPUT */
+            color: white;
+            border-radius: 8px; /* MODERNS ROUNDED CORNERS */
+        }
+
+        /* Stylish placeholder text color */
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Hides the Creator section by default */
+        #creator-section { 
+            display: none; 
+            background-color: rgba(48, 43, 99, 0.5); /* DARK PURPLE/BLUE BACKGROUND */
+            padding: 10px; 
+            border-left: 4px solid #ff00cc; 
+            margin-top: 10px; 
+            border-radius: 8px;
+        }
+
+        /* A glowing button */
+        button { 
+            background-color: #ff00cc; /* SOLID PINK */
+            color: white; 
+            padding: 15px; 
+            border: none; 
+            width: 100%; 
+            margin-top: 25px; 
+            font-weight: bold; 
+            font-size: 1.1em;
+            border-radius: 8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 0, 204, 0.5);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 204, 0.8);
+        }
+
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 0.8em; 
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <h1>MDK</h1>
+        <p class="info">Modern Digital Kings</p>
+        <p class="info" style="font-size: 0.85em;">Join as a Fan or start your journey as a Creator.</p>
+        
+        <form>
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" placeholder="Choose your unique name">
+            </div>
+
+            <div class="form-group">
+                <label>I am joining as:</label>
+                <select id="role-select" onchange="toggleCreatorSection()">
+                    <option value="fan">Beginner / Fan (Access everything)</option>
+                    <option value="creator">Creator (Start your professional journey)</option>
+                </select>
+            </div>
+
+            <!-- This section only appears when 'Creator' is selected -->
+            <div id="creator-section">
+                <label>Proof of Work:</label>
+                <input type="url" placeholder="Paste link from YouTube, TikTok, Facebook, or Instagram">
+            </div>
+
+        <button id="signupBtn">CREATE ACCOUNT</button>
+        </form>
+
+        <footer>
+            <p>The Verified Community for Professionals.</p>
+            <p style="margin-top: 5px;">Powered by Chiefor Global</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleCreatorSection() {
+            var role = document.getElementById("role-select").value;
+            var creatorSection = document.getElementById("creator-section");
+            if (role === "creator") {
+                creatorSection.style.display = "block";
+            } else {
+                creatorSection.style.display = "none";
+            }
+        }
+    </script>
+<script type="module" src="firebase-init.js"></script>
+<input type="email" id="email" placeholder="Enter Email">
+<input type="password" id="password" placeholder="Enter Password">
+<input type="text" id="fullName" placeholder="Enter Full Name">
+<script type="module" src="signup.js"></script>
+
+
+</body>
+</html>
